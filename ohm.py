@@ -10,12 +10,16 @@ st.header("Amperemeter", divider=True)
 v = st.slider('Pilih Tegangan (V)', 0.0, 12.0, 0.0)
 st.write('Tegangan (V):', v, 'Volt')
 
+# Slider input resistor (R)
+r = st.slider('Pilih Nilai Resistor (Ω)', 100, 1000, 371)
+st.write('Resistor (R):', r, 'Ohm')
+
 # Hitung arus (I) dengan ketidakpresisian
-i = (v + random.random() - 0.5) / 371
+i = (v + random.random() - 0.5) / r
 st.write('Arus (I):', round(i, 4), 'A atau', round(i*1000, 2), 'mA')
 
 # Tambahkan penjelasan singkat
 st.markdown("""
-Simulasi ini menampilkan nilai arus berdasarkan Hukum Ohm (I = V/R), dengan resistor tetap 371Ω.
-Komponen acak ditambahkan untuk mensimulasikan ketidakpresisian alat ukur.
+Simulasi ini menampilkan nilai arus berdasarkan Hukum Ohm (I = V/R), dengan komponen acak untuk
+mensimulasikan ketidakpresisian alat ukur.
 """)
